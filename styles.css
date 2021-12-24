@@ -26,3 +26,16 @@
   background-color: rgba(55, 49, 141, 0.849);
   top: -10px;
 }
+
+/* .clicked-selection {
+  transform: scale(1);
+  animation: ripple 600ms linear;
+  background-color: yellow;
+}
+
+@keyframes clicked-selection {
+  to {
+    transform: scale(4);
+    background-color: rgba(55, 49, 141, 0.849);
+  }
+} */
