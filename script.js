@@ -13,22 +13,22 @@ function winOrLose(playerSelection, computerSelection, win = true) {
 }
 
 // this function gets the player's selection and it loops until it gets a valid one
-function getPlayerSelection() {
-  let playerSelection = prompt(
-    "Choose one of the following: rock, paper, or scissors"
-  );
+// function getPlayerSelection() {
+//   let playerSelection = prompt(
+//     "Choose one of the following: rock, paper, or scissors"
+//   );
 
-  while (
-    playerSelection !== "rock" &&
-    playerSelection !== "paper" &&
-    playerSelection !== "scissors"
-  ) {
-    playerSelection = prompt(
-      "Choose one of the following: rock, paper, or scissors"
-    );
-  }
-  return playerSelection;
-}
+//   while (
+//     playerSelection !== "rock" &&
+//     playerSelection !== "paper" &&
+//     playerSelection !== "scissors"
+//   ) {
+//     playerSelection = prompt(
+//       "Choose one of the following: rock, paper, or scissors"
+//     );
+//   }
+//   return playerSelection;
+// }
 
 function playRound(playerSelection, computerSelection) {
   // transform both options into lowercase
@@ -74,14 +74,14 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   let playerScore = 0;
   let computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-    const roundResult = playRound(getPlayerSelection(), computerPlay());
-    if (roundResult === "win") {
-      playerScore++;
-    } else if (roundResult === "lose") {
-      computerScore++;
-    }
-  }
+  // for (let i = 0; i < 5; i++) {
+  //   const roundResult = playRound(getPlayerSelection(), computerPlay());
+  //   if (roundResult === "win") {
+  //     playerScore++;
+  //   } else if (roundResult === "lose") {
+  //     computerScore++;
+  //   }
+  // }
   if (playerScore > computerScore) {
     console.log("You win!");
   } else if (playerScore < computerScore) {

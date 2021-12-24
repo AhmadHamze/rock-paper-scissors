@@ -1,0 +1,28 @@
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 3rem;
+}
+
+.selection {
+  width: 12rem;
+  height: 8rem;
+  background-color: rgba(33, 148, 224, 0.87);
+  border-radius: 1cm;
+  border-style: hidden;
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.selection:hover {
+  background-color: rgba(55, 49, 141, 0.849);
+  top: -10px;
+}
