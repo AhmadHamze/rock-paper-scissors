@@ -5,30 +5,30 @@ function computerPlay() {
   return choice[value];
 }
 
-function winOrLose(playerSelection, computerSelection, win = true) {
-  if (win) {
-    return `You win! ${playerSelection} beats ${computerSelection}`;
+function winOrLoseOrTie(playerSelection, computerSelection, win) {
+  const span = document.createElement("span");
+  const buttonsContainer = document.querySelector("#round-results");
+  // win is 1
+  if (win === 1) {
+    const text = document.createTextNode(
+      `You win! ${playerSelection} beats ${computerSelection}`
+    );
+    span.appendChild(text);
   }
-  return `You lose! ${computerSelection} beats ${playerSelection}`;
+  // lose is 0
+  else if (win === 0) {
+    const text = document.createTextNode(
+      `You lose! ${computerSelection} beats ${playerSelection}`
+    );
+    span.appendChild(text);
+  }
+  // tie is -1 (or anything else)
+  else {
+    const text = document.createTextNode("It's a Tie");
+    span.appendChild(text);
+  }
+  buttonsContainer.appendChild(span);
 }
-
-// this function gets the player's selection and it loops until it gets a valid one
-// function getPlayerSelection() {
-//   let playerSelection = prompt(
-//     "Choose one of the following: rock, paper, or scissors"
-//   );
-
-//   while (
-//     playerSelection !== "rock" &&
-//     playerSelection !== "paper" &&
-//     playerSelection !== "scissors"
-//   ) {
-//     playerSelection = prompt(
-//       "Choose one of the following: rock, paper, or scissors"
-//     );
-//   }
-//   return playerSelection;
-// }
 
 function playRound(playerSelection, computerSelection) {
   // transform both options into lowercase
@@ -37,35 +37,35 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerSelection === "rock") {
     if (computerSelection === "paper") {
-      console.log(winOrLose(playerSelection, computerSelection, false));
+      winOrLoseOrTie(playerSelection, computerSelection, 0);
       return "lose";
     } else if (computerSelection === "scissors") {
-      console.log(winOrLose(playerSelection, computerSelection));
+      winOrLoseOrTie(playerSelection, computerSelection, 1);
       return "win";
     } else {
-      console.log("Tie");
+      winOrLoseOrTie(playerSelection, computerSelection, -1);
       return "tie";
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
-      console.log(winOrLose(playerSelection, computerSelection, false));
+      winOrLoseOrTie(playerSelection, computerSelection, 0);
       return "lose";
     } else if (computerSelection === "rock") {
-      console.log(winOrLose(playerSelection, computerSelection));
+      winOrLoseOrTie(playerSelection, computerSelection, 1);
       return "win";
     } else {
-      console.log("Tie");
+      winOrLoseOrTie(playerSelection, computerSelection, -1);
       return "tie";
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "rock") {
-      console.log(winOrLose(playerSelection, computerSelection, false));
+      winOrLoseOrTie(playerSelection, computerSelection, 0);
       return "lose";
     } else if (computerSelection === "paper") {
-      console.log(winOrLose(playerSelection, computerSelection));
+      winOrLoseOrTie(playerSelection, computerSelection, 1);
       return "win";
     } else {
-      console.log("Tie");
+      winOrLoseOrTie(playerSelection, computerSelection, -1);
       return "tie";
     }
   }
