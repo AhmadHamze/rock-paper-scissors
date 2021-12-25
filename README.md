@@ -2,4 +2,7 @@
 
 A simple rock-paper-scissors game.
 
-At this stage the game is just a console game, a gui will be added in the future.
+A very simple gui is added.
+![rps1](./images/rps1.png)
+
+![rps2](./images/rps2.png)
