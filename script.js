@@ -71,33 +71,38 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// DOM code
-
-const buttons = document.querySelectorAll(".selection");
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    playRound(button.getAttribute("id"), computerPlay());
-  });
-});
-
 function game() {
   let playerScore = 0;
   let computerScore = 0;
-  // for (let i = 0; i < 5; i++) {
-  //   const roundResult = playRound(getPlayerSelection(), computerPlay());
-  //   if (roundResult === "win") {
-  //     playerScore++;
-  //   } else if (roundResult === "lose") {
-  //     computerScore++;
-  //   }
-  // }
-  if (playerScore > computerScore) {
-    console.log("You win!");
-  } else if (playerScore < computerScore) {
-    console.log("You lose!");
-  } else {
-    console.log("It's a tie!");
-  }
-}
 
-//game();
+  const buttons = document.querySelectorAll(".selection");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (playerScore < 5 && computerScore < 5) {
+        const roundResult = playRound(
+          button.getAttribute("id"),
+          computerPlay()
+        );
+        if (roundResult === "win") {
+          playerScore++;
+        } else if (roundResult === "lose") {
+          computerScore++;
+        }
+        const resultPlayer = document.querySelector("#result-player");
+        const resultComputer = document.querySelector("#result-computer");
+
+        resultPlayer.innerHTML = playerScore;
+        resultComputer.innerHTML = computerScore;
+      }
+    });
+  });
+  document.addEventListener("click", () => {
+    if (playerScore >= 5 || computerScore >= 5) {
+      const winner = playerScore > computerScore ? "You Win!" : "You Lose!";
+      const resultContainer = document.querySelector("#result-container");
+      const winnerNode = document.createTextNode(winner);
+      resultContainer.appendChild(winnerNode);
+    }
+  });
+}
+game();

@@ -39,6 +39,26 @@ span {
   transition: top ease 0.5s;
 }
 
+#result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+#inner-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#result-player,
+#result-computer {
+  font-size: larger;
+  color: rgba(243, 40, 4, 0.931);
+  margin: 2rem;
+}
+
 .selection:hover {
   background-color: rgba(55, 49, 141, 0.849);
   top: -10px;
